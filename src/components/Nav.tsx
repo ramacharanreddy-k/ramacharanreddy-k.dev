@@ -1,23 +1,8 @@
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useScrollToSection } from './shared/useScrollToSection'
 import { nav } from '../data'
 
 export function Nav() {
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  /**
-   * Scroll to a section by id WITHOUT mutating the URL.
-   * If we're not on the home route, navigate there first and pass the
-   * target id in location state — `ScrollToHash` in App.tsx picks it up.
-   */
-  const goTo = (sectionId: string) => (e: React.MouseEvent) => {
-    e.preventDefault()
-    if (location.pathname === '/') {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate('/', { state: { scrollTo: sectionId } })
-    }
-  }
+  const goTo = useScrollToSection()
 
   return (
     <nav className="bg-bg/80 border-border sticky top-0 z-50 border-b backdrop-blur">
@@ -31,20 +16,17 @@ export function Nav() {
           ram<span className="text-accent">.</span>
         </a>
         <ul className="hidden items-center gap-1 md:flex">
-          {nav.map((item) => {
-            const sectionId = item.href.replace('#', '')
-            return (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={goTo(sectionId)}
-                  className="text-muted hover:text-fg hover:bg-bg-soft rounded-md px-3 py-1.5 text-sm font-medium transition-colors"
-                >
-                  {item.label}
-                </a>
-              </li>
-            )
-          })}
+          {nav.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                onClick={goTo(item.href.replace('#', ''))}
+                className="text-muted hover:text-fg hover:bg-bg-soft rounded-md px-3 py-1.5 text-sm font-medium transition-colors"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
         <a
           href="#contact"

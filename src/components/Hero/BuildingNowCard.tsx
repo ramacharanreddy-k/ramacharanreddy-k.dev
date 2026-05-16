@@ -1,10 +1,18 @@
 import { MiniCard } from './MiniCard'
+import { useScrollToSection } from '../shared/useScrollToSection'
 import { buildingNow } from '../../data'
 
 export function BuildingNowCard() {
+  const goTo = useScrollToSection()
+  const isHashLink = buildingNow.href.startsWith('#')
+
   return (
     <MiniCard eyebrow="building now">
-      <a href={buildingNow.href} className="group block">
+      <a
+        href={buildingNow.href}
+        onClick={isHashLink ? goTo(buildingNow.href.slice(1)) : undefined}
+        className="group block"
+      >
         <p
           className="text-ink group-hover:text-accent-deep text-sm leading-snug font-bold transition-colors"
           style={{ fontFamily: 'var(--font-display)' }}

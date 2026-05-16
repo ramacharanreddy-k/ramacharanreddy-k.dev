@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useScrollToSection } from './useScrollToSection'
 
 type Variant = 'primary' | 'outline' | 'ghost'
 type Size = 'sm' | 'md'
@@ -36,22 +36,9 @@ export function Cta({
   className?: string
   children: ReactNode
 }) {
-  const navigate = useNavigate()
-  const location = useLocation()
+  const goTo = useScrollToSection()
   const padding = variant === 'ghost' ? 'py-2.5' : sizeClass[size]
-
-  const isHashLink = href.startsWith('#')
-  const onClick = isHashLink
-    ? (e: React.MouseEvent) => {
-        e.preventDefault()
-        const sectionId = href.slice(1)
-        if (location.pathname === '/') {
-          document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
-        } else {
-          navigate('/', { state: { scrollTo: sectionId } })
-        }
-      }
-    : undefined
+  const onClick = href.startsWith('#') ? goTo(href.slice(1)) : undefined
 
   return (
     <a
