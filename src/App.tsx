@@ -4,6 +4,9 @@ import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
 import { Portfolio } from './pages/Portfolio'
 import { BlogPost } from './pages/BlogPost'
+import { ChatProvider } from './components/Chat/ChatProvider'
+import { useChat } from './components/Chat/useChat'
+import { ChatWidget } from './components/Chat/ChatWidget'
 
 /**
  * Handle scroll behavior on route change.
@@ -28,20 +31,28 @@ function ScrollToHash() {
   return null
 }
 
+function ChatMount() {
+  const { isOpen, closeChat } = useChat()
+  return <ChatWidget isOpen={isOpen} onClose={closeChat} />
+}
+
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToHash />
-      <div className="bg-bg text-fg min-h-screen antialiased">
-        <Nav />
-        <main className="mx-auto max-w-7xl px-4 pb-24 md:px-8">
-          <Routes>
-            <Route path="/" element={<Portfolio />} />
-            <Route path="/writing/:slug" element={<BlogPost />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <ChatProvider>
+        <ScrollToHash />
+        <div className="bg-bg text-fg min-h-screen antialiased">
+          <Nav />
+          <main className="mx-auto max-w-7xl px-4 pb-24 md:px-8">
+            <Routes>
+              <Route path="/" element={<Portfolio />} />
+              <Route path="/writing/:slug" element={<BlogPost />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+        <ChatMount />
+      </ChatProvider>
     </BrowserRouter>
   )
 }

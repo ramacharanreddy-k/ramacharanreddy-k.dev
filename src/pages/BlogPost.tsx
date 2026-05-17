@@ -1,3 +1,4 @@
+import type { MouseEvent } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getPostBySlug } from '../blog'
 
@@ -9,7 +10,7 @@ export function BlogPost() {
   // URL-clean back navigation: go home + smooth-scroll to Writing section without
   // a `#writing` hash sticking in the address bar. `ScrollToHash` in App.tsx picks
   // up the `scrollTo` location state.
-  const backToWriting = (e: React.MouseEvent) => {
+  const backToWriting = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     navigate('/', { state: { scrollTo: 'writing' } })
   }

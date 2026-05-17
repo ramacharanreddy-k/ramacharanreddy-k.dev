@@ -7,9 +7,10 @@ import prettier from 'eslint-config-prettier'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'functions/api/_bodies.ts']),
+  // Frontend (browser runtime)
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['src/**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
@@ -17,8 +18,18 @@ export default defineConfig([
       reactRefresh.configs.vite,
       prettier,
     ],
-    languageOptions: {
-      globals: globals.browser,
-    },
+    languageOptions: { globals: globals.browser },
+  },
+  // Cloudflare Pages Functions (Workers runtime — browser-API-compatible + some Node compat)
+  {
+    files: ['functions/**/*.ts'],
+    extends: [js.configs.recommended, tseslint.configs.recommended, prettier],
+    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+  },
+  // Build scripts (Node runtime via tsx)
+  {
+    files: ['scripts/**/*.ts'],
+    extends: [js.configs.recommended, tseslint.configs.recommended, prettier],
+    languageOptions: { globals: globals.node },
   },
 ])

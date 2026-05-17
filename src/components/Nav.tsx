@@ -20,7 +20,7 @@ export function Nav() {
             <li key={item.href}>
               <a
                 href={item.href}
-                onClick={goTo(item.href.replace('#', ''))}
+                onClick={goTo(item.href.slice(1))}
                 className="text-muted hover:text-fg hover:bg-bg-soft rounded-md px-3 py-1.5 text-sm font-medium transition-colors"
               >
                 {item.label}

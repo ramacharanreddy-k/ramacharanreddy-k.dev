@@ -1,3 +1,4 @@
+import type { MouseEvent } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 /**
@@ -13,7 +14,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 export function useScrollToSection() {
   const navigate = useNavigate()
   const location = useLocation()
-  return (sectionId: string) => (e: React.MouseEvent) => {
+  return (sectionId: string) => (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     if (location.pathname === '/') {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })

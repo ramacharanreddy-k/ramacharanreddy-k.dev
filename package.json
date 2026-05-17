@@ -3,29 +3,42 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Personal portfolio of Ramacharan Reddy — Senior AI Engineer.",
+  "description": "Personal portfolio of Ramacharan Reddy Kasireddy — Senior AI Engineer.",
+  "author": "Ramacharan Reddy Kasireddy <ramacharanreddykasireddy@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramacharanreddy-k/ramacharanreddy-k.dev.git"
+  },
+  "homepage": "https://ramacharanreddy-k.dev",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev:fn": "npm run build && wrangler pages dev dist",
+    "build:bodies": "tsx --tsconfig tsconfig.app.json scripts/build-bodies.ts",
+    "build": "npm run build:bodies && tsc -b && vite build",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name=ramacharanreddy-k-dev",
+    "logs": "wrangler pages deployment tail --project-name=ramacharanreddy-k-dev",
+    "typecheck": "npm run build:bodies && tsc -b --noEmit && tsc --noEmit -p functions/tsconfig.json",
     "lint": "eslint .",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "preview": "vite preview"
+    "format": "prettier --write ."
   },
   "dependencies": {
+    "openai": "^6.38.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.15.1"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260517.1",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.3.0",
     "@types/node": "^24.12.3",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@types/turndown": "^5.0.6",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
@@ -35,8 +48,11 @@
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4.3.0",
+    "tsx": "^4.22.1",
+    "turndown": "^7.2.4",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
-    "vite": "^8.0.12"
+    "vite": "^8.0.12",
+    "wrangler": "^4.92.0"
   }
 }

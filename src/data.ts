@@ -468,6 +468,6 @@ export const pitch: {
     'Multi-agent systems, RAG pipelines, and the unglamorous evals that keep production models honest.',
   ctas: [
     { label: 'See my work →', href: '#projects', variant: 'primary' },
-    { label: 'Say hi', href: '#contact', variant: 'outline' },
+    { label: 'Chat with me', href: '#chat', variant: 'outline' },
   ],
 }

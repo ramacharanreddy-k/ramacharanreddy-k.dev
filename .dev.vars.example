@@ -1,0 +1,3 @@
+# Wrangler reads .dev.vars when you run `npm run dev:fn` for local chat testing.
+# In production, set the same key in Cloudflare Pages dashboard → Settings → Environment variables.
+OPENAI_API_KEY=
