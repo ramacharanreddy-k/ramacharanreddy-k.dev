@@ -35,7 +35,7 @@ export function Experience() {
 
 function CompanyTabs({ active, onChange }: { active: number; onChange: (i: number) => void }) {
   return (
-    <nav className="border-border/50 flex overflow-x-auto border-b" aria-label="Companies">
+    <nav className="border-ink/15 flex overflow-x-auto border-b" aria-label="Companies">
       {experience.map((j, idx) => {
         const isActive = idx === active
         return (
@@ -63,7 +63,7 @@ function CompanyTabs({ active, onChange }: { active: number; onChange: (i: numbe
 
 function JobHeader({ job }: { job: Job }) {
   return (
-    <header className="border-border/50 mb-6 border-b pb-5">
+    <header className="border-ink/15 mb-6 border-b pb-5">
       <h3
         className="text-ink text-xl leading-tight font-bold md:text-2xl"
         style={{ fontFamily: 'var(--font-display)' }}
@@ -83,7 +83,7 @@ function JobHeader({ job }: { job: Job }) {
 
 function ProjectCard({ project: p }: { project: ProjectBullet }) {
   return (
-    <article className="border-border/50 hover:border-accent/40 rounded-md border p-4 transition-colors">
+    <article className="border-ink/15 hover:border-accent/40 rounded-md border p-4 transition-colors">
       <div className="mb-2 flex flex-wrap items-baseline gap-2">
         <h4
           className="text-ink text-sm font-bold md:text-base"
@@ -115,7 +115,7 @@ function ProjectCard({ project: p }: { project: ProjectBullet }) {
 }
 
 function Dot() {
-  return <span className="text-border">·</span>
+  return <span className="text-ink/30">·</span>
 }
 
 /* ─────────── Helpers ─────────── */

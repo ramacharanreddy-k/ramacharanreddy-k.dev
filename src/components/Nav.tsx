@@ -1,4 +1,5 @@
 import { useScrollToSection } from './shared/useScrollToSection'
+import { ThemeToggle } from './shared/ThemeToggle'
 import { nav } from '../data'
 
 export function Nav() {
@@ -28,13 +29,16 @@ export function Nav() {
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          onClick={goTo('contact')}
-          className="bg-accent text-ink hover:bg-accent-soft inline-flex items-center rounded-md px-4 py-1.5 text-sm font-semibold transition-colors"
-        >
-          Get in touch
-        </a>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <a
+            href="#contact"
+            onClick={goTo('contact')}
+            className="bg-accent text-ink hover:bg-accent-soft inline-flex items-center rounded-md px-4 py-1.5 text-sm font-semibold transition-colors"
+          >
+            Get in touch
+          </a>
+        </div>
       </div>
     </nav>
   )

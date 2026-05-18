@@ -41,14 +41,14 @@ function ResumeModal({ onClose }: { onClose: () => void }) {
       role="dialog"
       aria-modal="true"
       aria-label="Resume preview"
-      className="bg-bg/85 fixed inset-0 z-[100] flex items-stretch justify-center p-3 backdrop-blur md:items-center md:p-8"
+      className="bg-ink/50 fixed inset-0 z-[100] flex items-stretch justify-center p-3 backdrop-blur md:items-center md:p-8"
       onClick={onClose}
     >
       <div
         className="bg-paper text-ink relative flex h-full max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-md shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <header className="border-border/50 flex items-center justify-between gap-3 border-b px-5 py-3">
+        <header className="border-ink/15 flex items-center justify-between gap-3 border-b px-5 py-3">
           <Eyebrow>resume</Eyebrow>
           <div className="flex items-center gap-2">
             <a

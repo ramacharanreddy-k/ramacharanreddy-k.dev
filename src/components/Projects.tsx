@@ -34,12 +34,12 @@ export function Projects() {
                 className="relative h-full w-full object-contain"
                 loading="lazy"
               />
-              <span className="bg-bg/70 text-paper absolute top-2 left-2 rounded px-1.5 py-0.5 text-[10px] font-bold tracking-widest uppercase backdrop-blur-sm">
+              <span className="bg-ink/70 text-paper absolute top-2 left-2 rounded px-1.5 py-0.5 text-[10px] font-bold tracking-widest uppercase backdrop-blur-sm">
                 {p.type}
               </span>
               <span
                 aria-hidden
-                className="bg-bg/70 text-paper absolute top-2 right-2 rounded px-1.5 py-0.5 text-[10px] backdrop-blur-sm"
+                className="bg-ink/70 text-paper absolute top-2 right-2 rounded px-1.5 py-0.5 text-[10px] backdrop-blur-sm"
               >
                 ↗
               </span>

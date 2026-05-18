@@ -4,6 +4,8 @@ Personal portfolio of Ramacharan Reddy Kasireddy — Senior AI Engineer building
 
 Includes an AI chat widget ("Chat with me") that streams responses about Ram's work, projects, and writing — backed by GPT-5-mini via a Cloudflare Pages Function. OpenAI prompt caching keeps per-message cost around $0.001.
 
+Ships with a dark/light theme toggle (defaults to dark, remembers the user's choice).
+
 ## Tech Stack
 
 - **React 19** + **TypeScript** (strict mode)
@@ -73,6 +75,8 @@ npm run dev:fn       # build + wrangler at :8788
 │   │   │   └── chat.ts                    # Msg type + starter prompts
 │   │   ├── Hero/                          # Hero composition + sub-cards
 │   │   ├── shared/                        # Reusable primitives (Cta, Eyebrow, TopTab, …)
+│   │   │   ├── ThemeToggle.tsx            # Sun/moon button in Nav
+│   │   │   └── useTheme.ts                # Theme state + localStorage persistence
 │   │   ├── Nav.tsx
 │   │   ├── Footer.tsx
 │   │   ├── Experience.tsx
@@ -112,6 +116,15 @@ The "Chat with me" widget POSTs to `/api/chat`, which streams from OpenAI GPT-5-
 
 Per-message cost: **~$0.001**. Watch live token / cache-hit stats with `npm run logs`.
 
+## Theming
+
+Dark by default; sun/moon toggle in the nav flips to light. The user's choice is persisted to `localStorage` and only written on explicit toggle, so the default can be changed later without locking returning visitors into a stale preference.
+
+- **Tokens** live in `src/index.css`. Light values sit in `@theme`; `.dark` overrides only the *page chrome* tokens (`bg`, `bg-soft`, `fg`, `border`). The PaperCard palette (`paper`, `ink`, `accent`) is mode-invariant — every white card looks identical in both themes, so utility classes like `bg-paper`/`text-ink` adapt without any `dark:` variants in component code.
+- **Pre-paint script** in `index.html` sets the `.dark` class and the `theme-color` meta tag before first paint to avoid a flash.
+- **Shadow boost** under `html:not(.dark)` adds a hairline ring + deeper drop shadow to `shadow-md`/`shadow-xl`/`shadow-2xl` so white cards lift off the near-white page.
+- **Toggle UI**: `src/components/shared/ThemeToggle.tsx` + `useTheme.ts`.
+
 ## Deploy (Cloudflare Pages)
 
 The site auto-deploys via Git push. Initial setup:
@@ -148,3 +161,4 @@ npm run logs
 - `functions/api/_bodies.ts` is a generated artifact — gitignored, regenerated on every build via `scripts/build-bodies.ts`.
 - `public/_redirects` makes blog URLs like `/writing/from-sqlite-to-cosmos-db` work on direct load/refresh — Cloudflare reads it and serves `index.html` for unknown paths so React Router can take over.
 - The chat is rendered globally via `<ChatProvider>` in `App.tsx` and triggered by any `<Cta href="#chat">` button. `⌘K` / `Ctrl+K` toggles it from anywhere on the site.
+- When adding new components: use `bg-bg`/`text-fg`/`border-border` for page-level surfaces (these flip with the theme) and `bg-paper`/`text-ink`/`border-ink/15` for anything inside a PaperCard (these stay constant). Mixing the two — e.g. `border-border` inside a `bg-paper` card — breaks contrast in light mode.

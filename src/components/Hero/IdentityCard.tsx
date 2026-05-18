@@ -37,7 +37,7 @@ export function IdentityCard() {
       </div>
 
       {/* Facts table */}
-      <div className="border-border/50 mt-4 space-y-1.5 border-t pt-3 text-xs">
+      <div className="border-ink/15 mt-4 space-y-1.5 border-t pt-3 text-xs">
         {identity.facts.map((f) => (
           <p key={f.label} className="text-ink-soft flex items-baseline justify-between gap-2">
             <span className="text-muted">{f.label}</span>
@@ -47,7 +47,7 @@ export function IdentityCard() {
       </div>
 
       {/* Pills — eyebrow + items both driven by current status (heads-down vs active) */}
-      <div className="border-border/50 mt-4 border-t pt-3">
+      <div className="border-ink/15 mt-4 border-t pt-3">
         <Eyebrow className="mb-2">{upForByMode[status].eyebrow}</Eyebrow>
         <div className="flex flex-wrap gap-1.5">
           {upForByMode[status].pills.map((t) => (
@@ -62,7 +62,7 @@ export function IdentityCard() {
       </div>
 
       {/* Social icons — natural at small screens, pinned to bottom at xl+ */}
-      <div className="border-border/50 mt-4 flex justify-center gap-2 border-t pt-4 xl:mt-auto">
+      <div className="border-ink/15 mt-4 flex justify-center gap-2 border-t pt-4 xl:mt-auto">
         {identity.socials.map((s) => (
           <SocialButton key={s.kind} href={s.href} label={s.label}>
             {socialIcons[s.kind]}

@@ -4,7 +4,7 @@ import { heroStats } from '../../data'
 export function NumbersCard() {
   return (
     <MiniCard eyebrow="by the numbers">
-      <ul className="divide-border/60 divide-y">
+      <ul className="divide-ink/15 divide-y">
         {heroStats.map((s) => (
           <li key={s.label} className="flex items-baseline gap-3 py-1.5 first:pt-0 last:pb-0">
             <span

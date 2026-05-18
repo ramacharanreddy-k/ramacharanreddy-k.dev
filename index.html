@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0a0a" />
 
+    <script>
+      // Apply theme + matching theme-color before first paint to avoid flash.
+      // Default: dark. localStorage.theme = 'light' is the only opt-out.
+      (function () {
+        var isLight = false
+        try {
+          isLight = localStorage.getItem('theme') === 'light'
+        } catch (_) {}
+        if (!isLight) document.documentElement.classList.add('dark')
+        var meta = document.querySelector('meta[name="theme-color"]')
+        if (meta) meta.content = isLight ? '#fafafa' : '#0a0a0a'
+      })()
+    </script>
+
     <title>Ramacharan Reddy — Senior AI Engineer</title>
     <meta
       name="description"

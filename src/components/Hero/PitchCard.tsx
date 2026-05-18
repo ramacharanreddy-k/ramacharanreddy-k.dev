@@ -22,7 +22,7 @@ export function PitchCard() {
       </p>
 
       {/* How I work — story arc: SEE → SHAPE → SHIP */}
-      <div className="border-border/60 mt-6 border-t pt-5">
+      <div className="border-ink/15 mt-6 border-t pt-5">
         <Eyebrow className="mb-4">
           how I work <span className="text-ink-soft">— from signal to ship</span>
         </Eyebrow>

@@ -157,7 +157,7 @@ export function ChatWidget({ isOpen, onClose }: { isOpen: boolean; onClose: () =
             Chat with Ram
           </h2>
           <div className="flex items-center gap-2">
-            <kbd className="border-border text-ink-soft hidden rounded border px-1.5 py-0.5 text-[10px] font-medium sm:inline-block">
+            <kbd className="border-ink/20 text-ink-soft hidden rounded border px-1.5 py-0.5 text-[10px] font-medium sm:inline-block">
               esc
             </kbd>
             <button
@@ -171,8 +171,8 @@ export function ChatWidget({ isOpen, onClose }: { isOpen: boolean; onClose: () =
         </header>
 
         {/* input row */}
-        <div className="border-border/60 mx-5 border-t pt-3 pb-3 sm:mx-7">
-          <div className="border-border focus-within:border-accent flex items-center gap-3 rounded-lg border bg-white px-4 py-3 transition-all focus-within:shadow-[0_0_0_3px_rgba(6,182,212,0.15)]">
+        <div className="border-ink/15 mx-5 border-t pt-3 pb-3 sm:mx-7">
+          <div className="border-ink/20 focus-within:border-accent flex items-center gap-3 rounded-lg border bg-white px-4 py-3 transition-all focus-within:shadow-[0_0_0_3px_rgba(6,182,212,0.15)]">
             <svg
               width="18"
               height="18"
@@ -210,7 +210,7 @@ export function ChatWidget({ isOpen, onClose }: { isOpen: boolean; onClose: () =
           <p className="text-ink-soft/70 mt-2 flex items-center gap-2 px-1 text-[10.5px]">
             <span>AI · trained on Ram's portfolio · responses may be inaccurate</span>
             <span className="ml-auto hidden items-center gap-1 sm:flex">
-              <kbd className="border-border rounded border bg-white px-1 py-0.5 text-[9px] font-medium">
+              <kbd className="border-ink/20 rounded border bg-white px-1 py-0.5 text-[9px] font-medium">
                 ⌘K
               </kbd>
               <span className="text-ink-soft/60">to toggle</span>
@@ -253,7 +253,7 @@ export function ChatWidget({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       <polyline points="9 18 15 12 9 6" />
                     </svg>
                     <span className="text-ink flex-1 text-[13.5px]">{p}</span>
-                    <kbd className="border-border text-ink-soft hidden rounded border bg-white px-1 py-0.5 text-[10px] opacity-0 group-hover:opacity-100 sm:inline-block">
+                    <kbd className="border-ink/20 text-ink-soft hidden rounded border bg-white px-1 py-0.5 text-[10px] opacity-0 group-hover:opacity-100 sm:inline-block">
                       ⏎
                     </kbd>
                   </button>
@@ -301,7 +301,7 @@ export function ChatWidget({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                 </div>
               )}
 
-              <div className="border-border/60 mt-2 flex items-center justify-between border-t pt-3">
+              <div className="border-ink/15 mt-2 flex items-center justify-between border-t pt-3">
                 <button
                   onClick={reset}
                   disabled={isLoading}

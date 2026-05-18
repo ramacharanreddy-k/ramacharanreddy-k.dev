@@ -54,7 +54,7 @@ export function BlogPost() {
           {post.title}
         </h1>
         {post.subtitle && (
-          <p className="text-ink-soft mt-4 text-lg leading-relaxed md:text-xl">{post.subtitle}</p>
+          <p className="text-muted mt-4 text-lg leading-relaxed md:text-xl">{post.subtitle}</p>
         )}
         <div className="mt-5 flex flex-wrap gap-1.5">
           {post.tags.map((t) => (
@@ -71,7 +71,7 @@ export function BlogPost() {
       <div className="bg-paper text-ink rounded-md p-6 shadow-md md:p-10">
         <div className="prose">{post.body}</div>
         {post.externalUrl && (
-          <p className="text-muted border-border/50 mt-10 border-t pt-6 text-xs">
+          <p className="text-muted border-ink/15 mt-10 border-t pt-6 text-xs">
             Originally published{' '}
             <a
               href={post.externalUrl}
