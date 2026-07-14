@@ -238,7 +238,7 @@ export const skillGroups = [
     label: 'LLM Platforms',
     items: [
       'Azure OpenAI (GPT-4, Embeddings)',
-      'AWS Bedrock (Claude, Titan Embeddings)',
+      'AWS Bedrock (Claude, Nova, Titan Embeddings)',
       'Google Gemini',
     ],
   },
@@ -277,6 +277,8 @@ export const skillGroups = [
     items: [
       'PostgreSQL',
       'Cosmos DB',
+      'Pinecone',
+      'Qdrant',
       'OpenSearch',
       'SQLAlchemy',
       'RESTful APIs',
