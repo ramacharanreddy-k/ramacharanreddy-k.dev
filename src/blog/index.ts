@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { buildingIngestlib } from './building-ingestlib'
 import { fromSqliteToCosmosDb } from './from-sqlite-to-cosmos-db'
 
 export type BlogPost = {
@@ -13,7 +14,7 @@ export type BlogPost = {
   body: ReactNode
 }
 
-export const blogPosts: BlogPost[] = [fromSqliteToCosmosDb]
+export const blogPosts: BlogPost[] = [buildingIngestlib, fromSqliteToCosmosDb]
 
 export const getPostBySlug = (slug: string): BlogPost | undefined =>
   blogPosts.find((p) => p.slug === slug)

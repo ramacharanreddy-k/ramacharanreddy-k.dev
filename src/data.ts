@@ -154,6 +154,16 @@ export const experience: Job[] = [
 
 export const projects = [
   {
+    name: 'ingestlib',
+    blurb:
+      'Self-hosted document intelligence for RAG — PDF/DOCX/PPTX to searchable, cited, retrieval-ready chunks. Layout-aware parsing with charts→data tables and bbox provenance, natural chunking, hybrid (dense+sparse) retrieval with reranking on Pinecone or Qdrant. ~$0.002/page.',
+    tags: ['RAG', 'PaddleOCR-VL', 'AWS Bedrock', 'Python'],
+    href: 'https://github.com/LangModule/ingestlib',
+    pinned: true,
+    type: 'OPEN SOURCE',
+    cover: '/ingestlib.jpg',
+  },
+  {
     name: 'checkpoint-cosmos',
     blurb:
       'Drop-in LangGraph checkpoint saver for Azure Cosmos DB. Tip Document pattern + transactional batches deliver 1-RU latest-checkpoint reads. Sync + async APIs, keyless Azure Identity auth.',
@@ -186,6 +196,14 @@ export type WritingEntry = {
 }
 
 export const writing: WritingEntry[] = [
+  {
+    date: '2026-07-13',
+    title: 'Building ingestlib',
+    summary:
+      'LlamaParse charges per page and keeps your documents on their servers. I spent a sprint building the self-hosted alternative — and the hard parts were nothing like what I expected: a tiny vision model that lies about charts, a rate limiter that silently degraded quality, and an eval harness that ended up auditing my own prompts.',
+    tags: ['RAG', 'Document Intelligence', 'Evals'],
+    slug: 'building-ingestlib',
+  },
   {
     date: '2026-05-16',
     title: 'From SQLite to Cosmos DB',
@@ -353,7 +371,7 @@ export const recognition = [
 export const heroStats = [
   { value: '4', label: 'enterprise clients shipped' },
   { value: '3+', label: 'yrs production AI/ML' },
-  { value: '2', label: 'open-source agent packages' },
+  { value: '4', label: 'open-source packages on PyPI' },
 ]
 
 /**
