@@ -156,7 +156,7 @@ export const projects = [
   {
     name: 'ingestlib',
     blurb:
-      'Self-hosted document intelligence for RAG — PDF/DOCX/PPTX to searchable, cited, retrieval-ready chunks. Layout-aware parsing with charts→data tables and bbox provenance, natural chunking, hybrid (dense+sparse) retrieval with reranking on Pinecone or Qdrant. ~$0.002/page.',
+      'Self-hosted document intelligence for RAG — PDF/DOCX/PPTX to searchable, cited, retrieval-ready chunks. Layout-aware parsing with charts→data tables and bbox provenance, natural chunking, hybrid (dense+sparse) retrieval with reranking on six vector stores: Pinecone, Qdrant, SQLite, pgvector, MongoDB, Milvus. ~$0.002/page.',
     tags: ['RAG', 'PaddleOCR-VL', 'AWS Bedrock', 'Python'],
     href: 'https://github.com/LangModule/ingestlib',
     pinned: true,
@@ -279,6 +279,9 @@ export const skillGroups = [
       'Cosmos DB',
       'Pinecone',
       'Qdrant',
+      'pgvector',
+      'Milvus',
+      'MongoDB Atlas',
       'OpenSearch',
       'SQLAlchemy',
       'RESTful APIs',
