@@ -154,10 +154,10 @@ export const experience: Job[] = [
 
 export const projects = [
   {
-    name: 'ingestlib',
+    name: 'ingestlib + studio',
     blurb:
-      'Self-hosted document intelligence for RAG — PDF/DOCX/PPTX to searchable, cited, retrieval-ready chunks. Layout-aware parsing with charts→data tables and bbox provenance, natural chunking, hybrid (dense+sparse) retrieval with reranking on six vector stores: Pinecone, Qdrant, SQLite, pgvector, MongoDB, Milvus. ~$0.002/page.',
-    tags: ['RAG', 'PaddleOCR-VL', 'AWS Bedrock', 'Python'],
+      'Self-hosted document intelligence for RAG — PDF/DOCX/PPTX to searchable, cited, retrieval-ready chunks. Layout-aware parsing with charts→data tables and bbox provenance, natural chunking, hybrid (dense+sparse) retrieval with reranking on six vector stores. Ships with ingestlib-studio, a full visual UI: a zero-restart setup wizard, try-before-you-commit runs, page-level provenance review, live ingestion, a cited retrieval playground, and lossless vector-store migration. ~$0.002/page.',
+    tags: ['RAG', 'PaddleOCR-VL', 'AWS Bedrock', 'Python', 'FastAPI', 'React'],
     href: 'https://github.com/LangModule/ingestlib',
     pinned: true,
     type: 'OPEN SOURCE',
@@ -259,12 +259,15 @@ export const skillGroups = [
     label: 'Programming',
     items: [
       'Python',
+      'TypeScript',
       'SQL',
+      'Java',
+      'FastAPI',
+      'React',
+      'Tailwind CSS',
       'pandas',
       'statsmodels',
       'scikit-learn',
-      'Java',
-      'FastAPI',
       'Uvicorn',
       'Pydantic',
       'Jinja',
@@ -342,6 +345,7 @@ export const skillGroups = [
       'GitHub Actions',
       'Jenkins',
       'GitLab CI/CD',
+      'Cloudflare Pages',
       'GitHub Copilot',
       'Cursor',
       'Claude Code',

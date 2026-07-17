@@ -509,10 +509,12 @@ Help: Create an index for this key or use a different filter.`}</code>
         <strong>
           <a href="https://github.com/LangModule/ingestlib-studio">ingestlib-studio</a>
         </strong>{' '}
-        — a review UI with the source PDF on the left and parsed results on the right, where
-        hovering a chunk highlights its bounding box on the page, and every retrieval answer points
-        at the exact spot it came from. The region IDs, normalized bboxes, and S3 page renders are
-        all already shipped; the studio just draws them.
+        — and it has since shipped at v1.0.0. A review UI with the page render on the left and
+        parsed results on the right, where hovering a chunk highlights its bounding box on the
+        page and every retrieval answer points at the exact spot it came from. Plus the parts I
+        did not plan at first: a setup wizard that verifies your stack with real calls and
+        activates the config with zero restarts, try-before-you-commit pipeline runs, and
+        lossless vector-store migration, because S3 is the source of truth.
       </p>
       <p>
         After that: a schema-driven <code>extract</code> operation (pull typed fields with
